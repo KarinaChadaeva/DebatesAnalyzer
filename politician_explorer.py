@@ -1,5 +1,6 @@
 import pandas as pd
 from collections import Counter
+import matplotlib.pyplot as plt
 from helper_functions import preprocess_texts, sentiment_distribution
 
 
@@ -39,6 +40,7 @@ class PoliticianExplorer:
 
         print(f"\n{p2.csv_key}:")
         self._print_top_words_from_texts(self._texts_for_politician(p2, p2.debates_participated), top_n_words)
+        self._plot_sentiment_comparison(stats1, stats2)
 
 
     def compare_politician_in_two_groups(self, 
@@ -71,6 +73,7 @@ class PoliticianExplorer:
 
         print(f"\n{group_b_name}:")
         self._print_top_words_from_texts(self._texts_for_politician(p, group_b), top_n_words)
+        self._plot_sentiment_comparison(stats_a, stats_b)
 
     
     def _get_politician(self, key):
@@ -82,7 +85,7 @@ class PoliticianExplorer:
     def _texts_for_politician(self, p, debates):
         texts = []
         for d in debates:
-            for u in d.utterances:
+            for u in d:
                 if getattr(u.speaker, "csv_key", None) == p.csv_key and u.text:
                     texts.append(u.text)
         return texts
@@ -177,3 +180,25 @@ class PoliticianExplorer:
 
         for name, cnt in items:
             print(f"{name:<25} {cnt}")
+    
+    def _plot_sentiment_comparison(self, stats1, stats2):
+        labels = ["pos", "neg", "neu"]
+        p1_vals = [stats1[k] for k in labels]
+        p2_vals = [stats2[k] for k in labels]
+
+        x = list(range(len(labels)))
+        width = 0.35
+
+        fig, ax = plt.subplots()
+        ax.bar([i - width/2 for i in x], p1_vals, width, label=stats1["label"])
+        ax.bar([i + width/2 for i in x], p2_vals, width, label=stats2["label"])
+
+        ax.set_title("Sentiment distribution comparison")
+        ax.set_xticks(x)
+        ax.set_xticklabels(labels)
+        ax.set_ylim(0, 1)
+        ax.legend()
+
+        plt.tight_layout()
+        plt.show()
+

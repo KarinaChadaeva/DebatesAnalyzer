@@ -1,5 +1,6 @@
 import pandas as pd
 from collections import Counter
+import matplotlib.pyplot as plt
 from helper_functions import preprocess_texts, sentiment_distribution
 
 INCLUDES = {'most_common_words', 'emotions', 'all'}
@@ -52,15 +53,22 @@ class DebateExplorer:
         print(df.to_string(index=False, max_colwidth=40, justify="left"))
     
     def _calculate_most_common(self):
-        print(f"\n-----MOST COMMON WORDS (TOP-{self.top_n})-----")
-        raw_texts = [u.text for d in self.debates for u in d.utterances]
+        raw_texts = [u.text for d in self.debates for u in d]
         clean_texts = preprocess_texts(raw_texts)
         c = Counter()
         for t in clean_texts:
             c.update(t.split())
 
-        for word, count in c.most_common(self.top_n):
-            print(f"{word:<18} {count}")
+        most_common = c.most_common(self.top_n)
+        words = [w for w, _ in most_common]
+        counts = [cnt for _, cnt in most_common]
+
+        plt.figure(figsize=(8, 5))
+        plt.barh(words[::-1], counts[::-1])
+        plt.xlabel("Frequency")
+        plt.title(f"Top {self.top_n} most common words")
+        plt.tight_layout()
+        plt.show()
 
     def _calculate_emotions(self):
         print(f"\n-----SENTIMENT ANALYSIS-----")

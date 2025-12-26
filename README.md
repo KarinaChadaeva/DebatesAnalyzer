@@ -129,6 +129,7 @@ explorer = DebateExplorer(
 )
 explorer.show_debates_stats()
 ```
+![2.0](screenshots/2.0.png)
 ![2](screenshots/2.png)
 
 ### 8. Анализ эмоциональной тональности
@@ -222,6 +223,8 @@ pexp.compare_two_politicians(
   </tr>
 </table>
 
+![5.3](screenshots/5.3.png)
+
 
 ### 3. Один политик в двух группах дебатов
 
@@ -270,6 +273,8 @@ pexp.compare_politician_in_two_groups(
   </tr>
 </table>
 
+![6.3](screenshots/6.3.png)
+
 
 ### 4. Один политик с разными оппонентами
 ```python
@@ -306,3 +311,5 @@ pexp.compare_politician_in_two_groups(
     </td>
   </tr>
 </table>
+
+![7.3](screenshots/7.3.png)

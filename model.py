@@ -32,6 +32,9 @@ class Debate:
         self.politicians = []
         self.other_speakers = []
         self.utterances = []
+    
+    def __iter__(self):
+        return iter(self.utterances)
 
     def _add_politician(self, politician: Politician):
         if politician not in self.politicians:
