@@ -167,9 +167,24 @@ pexp.show_politician_info(
     top_n_words=15
 )
 ```
-![4.1](screenshots/4.1.png)
-![4.2](screenshots/4.2.png)
-![4.3](screenshots/4.3.png)
+<img src="screenshots/4.1.png" width="700"/>
+
+<br/><br/>
+
+<table>
+  <tr>
+    <td align="center">
+      <img src="screenshots/4.2.png" width="350"/>
+      <br/>
+      <em></em>
+    </td>
+    <td align="center">
+      <img src="screenshots/4.3.png" width="350"/>
+      <br/>
+      <em></em>
+    </td>
+  </tr>
+</table>
 
 
 ### 2. Сравнение двух политиков
@@ -189,8 +204,20 @@ pexp.compare_two_politicians(
     top_n_words=15
 )
 ```
-![5.1](screenshots/5.1.png)
-![5.2](screenshots/5.2.png)
+<table>
+  <tr>
+    <td align="center">
+      <img src="screenshots/5.1.png" width="500"/>
+      <br/>
+      <em></em>
+    </td>
+    <td align="center">
+      <img src="screenshots/5.2.png" width="300"/>
+      <br/>
+      <em></em>
+    </td>
+  </tr>
+</table>
 
 
 ### 3. Один политик в двух группах дебатов
@@ -225,8 +252,20 @@ pexp.compare_politician_in_two_groups(
     top_n_words=15
 )
 ```
-![6.1](screenshots/6.1.png)
-![6.2](screenshots/6.2.png)
+<table>
+  <tr>
+    <td align="center">
+      <img src="screenshots/6.1.png" width="500"/>
+      <br/>
+      <em></em>
+    </td>
+    <td align="center">
+      <img src="screenshots/6.2.png" width="300"/>
+      <br/>
+      <em></em>
+    </td>
+  </tr>
+</table>
 
 
 ### 4. Один политик с разными оппонентами
@@ -250,5 +289,17 @@ pexp.compare_politician_in_two_groups(
     top_n_words=15
 )
 ```
-![7.1](screenshots/7.1.png)
-![7.2](screenshots/7.2.png)
+<table>
+  <tr>
+    <td align="center">
+      <img src="screenshots/7.1.png" width="500"/>
+      <br/>
+      <em></em>
+    </td>
+    <td align="center">
+      <img src="screenshots/7.2.png" width="300"/>
+      <br/>
+      <em></em>
+    </td>
+  </tr>
+</table>
